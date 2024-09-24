@@ -1,0 +1,35 @@
+import random
+
+class Employee:
+    def __init__(self, name, skills, performance, interests):
+        self.name = name
+        self.skills = skills
+        self.performance = performance
+        self.interests = interests
+        self.career_path = []
+
+    def develop_skills(self):
+        new_skill = random.choice(['Leadership', 'Communication', 'Technical', 'Management'])
+        self.skills.append(new_skill)
+        print(f"{self.name} has developed a new skill: {new_skill}")
+
+    def evaluate_performance(self):
+        self.performance += random.randint(1, 10)
+        print(f"{self.name}'s performance has improved to {self.performance}")
+
+    def suggest_career_path(self):
+        if 'Leadership' in self.skills:
+            self.career_path.append('Team Lead')
+        if 'Management' in self.skills:
+            self.career_path.append('Manager')
+        if 'Technical' in self.skills:
+            self.career_path.append('Technical Specialist')
+        if 'Communication' in self.skills:
+            self.career_path.append('Public Relations')
+        print(f"Suggested career paths for {self.name}: {', '.join(self.career_path)}")
+
+# Example usage
+employee = Employee(name="John Doe", skills=['Technical'], performance=70, interests=['Management'])
+employee.develop_skills()
+employee.evaluate_performance()
+employee.suggest_career_path()
